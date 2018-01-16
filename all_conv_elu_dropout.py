@@ -8,26 +8,14 @@ plt.ioff()
 from keras.preprocessing import image
 from keras.datasets import cifar10
 from keras.models import Model, Sequential
-from keras import backend as K
 from keras.preprocessing.image import ImageDataGenerator
 from keras import optimizers
 import numpy as np
-from keras.applications.xception import Xception
 from keras.layers import Flatten, Dense, Conv2D, GlobalAveragePooling2D
 from keras.layers import Input, Dropout, BatchNormalization, ELU
-
-from keras.applications.vgg16 import VGG16
-from keras.applications.vgg16 import preprocess_input
 from keras.callbacks import Callback
 
-# (x_train, y_train), (x_val, y_val) = cifar10.load_data()
-# load in data from .npz file
-with np.load('datathon_data.npz') as data:
-
-    x_train = data['x_train']
-    x_val = data['x_val']
-    y_train = data['y_train']
-    y_val = data['y_val']
+(x_train, y_train), (x_val, y_val) = cifar10.load_data()
 
 number, height, width, channels = x_train.shape
 
