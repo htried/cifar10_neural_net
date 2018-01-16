@@ -13,13 +13,7 @@ from keras.layers import Dense, Conv2D, GlobalAveragePooling2D
 from keras.layers import Dropout, BatchNormalization
 from keras.callbacks import Callback
 
-# load in data from .npz file
-with np.load('datathon_data.npz') as data:
-
-    x_train = data['x_train']
-    x_val = data['x_val']
-    y_train = data['y_train']
-    y_val = data['y_val']
+(x_train, y_train), (x_val, y_val) = cifar10.load_data()
 
 number, height, width, channels = x_train.shape
 
